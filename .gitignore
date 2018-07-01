@@ -1,2 +1,8 @@
 # Config file
 config.json
+
+# Dependency directories
+node_modules/
+
+# Lock files
+*.lock
