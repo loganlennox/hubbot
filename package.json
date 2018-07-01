@@ -1,0 +1,21 @@
+{
+  "name": "Roprogram",
+  "description": "Program's Hub's official discord bot.",
+  "keywords": [
+    "Roprogram",
+    "Discord",
+    "Bot"
+  ],
+  "author": "Logan Lennox",
+  "email": "loganlennox@protonmail.com",
+  "main": "./main.js",
+  "license": "MIT",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/loganlennox/roprogram.git"
+  },
+  "dependencies": {
+    "discord.js": "^11.3.2"
+  }
+}
