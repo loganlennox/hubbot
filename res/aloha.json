@@ -1,5 +1,5 @@
 {
-  "hellotxt": [
+  "hello": [
     "Howdy",
     "Hola como estas",
     "Heyyyyy",
@@ -11,16 +11,16 @@
     "Fancy seeing you here",
     "Hello"
   ],
-  "goodbyetxt": [
+  "bye": [
     "Adiós",
     "Sayōnara",
     "Farewell",
-    "Goodbye",
+    "Maybe another time",
     "You'll be missed",
     "See ya around",
     "Until next time",
     "Sad to see you go",
-    "Bye bye",
+    "Bai bai",
     "Tata for now"
   ]
 }

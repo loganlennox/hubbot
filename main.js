@@ -4,7 +4,7 @@ const config = require("./config.json");
 
 const util = require("./utilities.js");
 const input = require("./input.js");
-const aloha = require("./aloha.js");
+const aloha = require("./res/aloha.json");
 
 const client = new Discord.Client();
 
@@ -18,20 +18,24 @@ client.on("ready", () => {
 client.on("message", (msg) => input.routeInput(msg));
 
 client.on("guildMemberAdd", (member) => {
+  const msg = aloha.hello[Math.floor(Math.random() * aloha.hello.length)];
+
   let embed = new Discord.RichEmbed()
-    .setTitle(":wave: :wave:")
-    .setDescription(aloha.hellotxt(member))
-    .setTimestamp()
+    .setTitle(`:wave: ${msg}`)
+    .setDescription(`Welcome to the server, ${member}`)
     .setColor(config.baseColor);
+
   util.send_custom_msg(config.homeChannel, embed, 15000);
 });
 
 client.on("guildMemberRemove", (member) => {
+  const msg = aloha.bye[Math.floor(Math.random() * aloha.bye.length)];
+
   let embed = new Discord.RichEmbed()
-    .setTitle(":wave: :wave:")
-    .setDescription(aloha.goodbyetxt(member))
-    .setTimestamp()
+    .setTitle(`:wave: Goodbye...`)
+    .setDescription(`${msg}, ${member}`)
     .setColor(config.baseColor);
+
   util.send_custom_msg(config.homeChannel, embed, 15000);
 });
 
