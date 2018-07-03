@@ -2,6 +2,7 @@ const commands = require("./commands/main.js");
 
 const censor = require("./res/censor.json");
 
+// determine what the input is and what actions should be taken
 exports.routeInput = (msg) => {
   if (exports.isExplicit(msg)) {
     msg.delete()
@@ -13,10 +14,9 @@ exports.routeInput = (msg) => {
   if (commands.handleCommand(msg)) return;
 
   // 3 - Check if message is trigger
-
-  console.log(`"${msg}" is a normal message.`);
 };
 
+// determine if the input contains any of the specified explicit words
 exports.isExplicit = (input) => {
   let re;
 

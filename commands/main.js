@@ -2,6 +2,7 @@ const fs = require("fs");
 
 const config = require("../config.json");
 
+// if the given input is a command, attempt to execute it
 exports.handleCommand = (input) => {
   const cmd = input.toString().toLowerCase().substring(1).split(" ");
 
