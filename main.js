@@ -1,9 +1,9 @@
 const Discord = require("discord.js");
 
-const config = require("./config.json");
-
 const util = require("./utilities.js");
 const input = require("./input.js");
+
+const config = require("./config.json");
 const aloha = require("./res/aloha.json");
 
 const client = new Discord.Client();

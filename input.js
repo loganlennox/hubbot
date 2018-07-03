@@ -10,10 +10,7 @@ exports.routeInput = (msg) => {
     return;
   }
 
-  if (commands.handleCommand(msg)) {
-    return;
-  }
-
+  if (commands.handleCommand(msg)) return;
 
   // 3 - Check if message is trigger
 
@@ -21,12 +18,12 @@ exports.routeInput = (msg) => {
 };
 
 exports.isExplicit = (input) => {
-  for (let w of censor.badwords) {
-    let re = new RegExp(w, "gi");
+  let re;
 
-    if (re.exec(input.toString()) != null) {
-      return true;
-    }
+  for (let w of censor.badwords) {
+    re = new RegExp(w, "gi");
+
+    if (re.exec(input.toString()) != null) return true;
   }
 
   return false;
