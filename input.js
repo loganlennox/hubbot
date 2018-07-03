@@ -1,3 +1,5 @@
+const commands = require("./commands/main.js");
+
 const censor = require("./res/censor.json");
 
 exports.routeInput = (msg) => {
@@ -8,7 +10,10 @@ exports.routeInput = (msg) => {
     return;
   }
 
-  // 2 - Check if message is command
+  if (commands.handleCommand(msg)) {
+    return;
+  }
+
 
   // 3 - Check if message is trigger
 
@@ -19,7 +24,7 @@ exports.isExplicit = (input) => {
   for (let w of censor.badwords) {
     let re = new RegExp(w, "gi");
 
-    if (re.exec(input) != null) {
+    if (re.exec(input.toString()) != null) {
       return true;
     }
   }
