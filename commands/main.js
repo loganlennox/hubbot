@@ -11,7 +11,7 @@ exports.handleCommand = (input) => {
 
   const command = include(`/commands/${cmd[0]}/main.js`);
 
-  command.execute(cmd);
+  command.execute(input, cmd);
 
   return true;
 };
