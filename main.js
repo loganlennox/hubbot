@@ -1,10 +1,14 @@
+global.base_dir = __dirname;
+global.abs_path = (path) => base_dir + path;
+global.include = (file) => require(abs_path("/" + file));
+
 const Discord = require("discord.js");
 
-const util = require("./utilities.js");
-const input = require("./input.js");
+const util = include("/utilities.js");
+const input = include("/input.js");
 
-const config = require("./config.json");
-const aloha = require("./res/aloha.json");
+const config = include("/config.json");
+const aloha = include("/res/aloha.json");
 
 const client = new Discord.Client();
 

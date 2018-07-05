@@ -1,6 +1,6 @@
-const commands = require("./commands/main.js");
+const commands = include("/commands/main.js");
 
-const censor = require("./res/censor.json");
+const censor = include("/res/censor.json");
 
 // determine what the input is and what actions should be taken
 exports.routeInput = (msg) => {
