@@ -4,6 +4,12 @@ const config = include("/config.json")
 
 exports.client = null;
 
+exports.send_raw_msg = (channelID, message, time = 0) => {
+  exports.client.channels.get(channelID).send(message)
+    .then((m) => (time > 0) ? m.delete(time) : null)
+    .catch(console.error);
+};
+
 exports.send_msg = (channelID, message, time = 0) => {
   let embed = new Discord.RichEmbed()
     .setColor(config.baseColor)
