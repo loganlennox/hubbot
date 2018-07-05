@@ -17,7 +17,7 @@ util.client = client;
 // set activity and print message on bot startup
 client.on("ready", () => {
   client.user.setActivity("%help");
-  console.log("Roprogram is online!");
+  console.log("HubBot is online!");
 });
 
 // send all messages to the input handler
