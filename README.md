@@ -1,10 +1,8 @@
-# HubBot
-![HubBot](https://cdn.discordapp.com/avatars/437882198117449728/eea069ad71361d9d2cd29268a0f96d9a.png)
-
-Discord bot that can be used for general server management and other miscellaneous activities.
+# HubBot - Node Powered Discord Bot
+HubBot can be used for general server management and other miscellaneous tasks.
 
 ## Setup and Configuration for Forks
-In order to create your own version of this bot, you'll need to write a ``config.json`` file in the project root. This is what a basic ``config.json`` file looks like.
+In order to create your own version of HubBot, you'll need to write a ``config.json`` file in the project root. This is what a basic ``config.json`` file looks like.
 
 ```
 {
