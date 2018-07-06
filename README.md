@@ -3,8 +3,8 @@
 
 Discord bot that can be used for general server management and other miscellaneous activities.
 
-## Setup and Configuration
-In order to run the bot yourself, you'll need to write a ``config.json`` file in the project root. This is what a basic ``config.json`` file looks like.
+## Setup and Configuration for Forks
+In order to create your own version of this bot, you'll need to write a ``config.json`` file in the project root. This is what a basic ``config.json`` file looks like.
 
 ```
 {
