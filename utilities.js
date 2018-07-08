@@ -1,3 +1,5 @@
+const fs = require("fs");
+
 const Discord = require("discord.js")
 
 const config = include("/config.json")
@@ -24,4 +26,8 @@ exports.send_custom_msg = (channelID, embed, time = 0) => {
   exports.client.channels.get(channelID).send(embed)
     .then((m) => (time > 0) ? m.delete(time) : null)
     .catch(console.error);
+};
+
+exports.file_exists = (dir, file) => {
+  return fs.readdirSync(dir).filter(f => f.toLowerCase() == file.toLowerCase()).length > 0;
 };
