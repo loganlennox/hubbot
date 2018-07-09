@@ -1,4 +1,8 @@
+const Discord = require("discord.js");
+
 const util = include("/utilities.js");
+
+const config = include("/config.json");
 
 exports.execute = (input, args) => {
   if (input.mentions.everyone) return;
@@ -6,8 +10,9 @@ exports.execute = (input, args) => {
   let user = input.mentions.members.first();
   user = (user !== undefined) ? user.user : input.author;
 
-  const avatarid = `${user.id}/${user.avatar}.png?size=1024`;
-  const avatarurl = "https://cdn.discordapp.com/avatars/" + avatarid;
+  let embed = new Discord.RichEmbed()
+    .setColor(config.baseColor)
+    .setImage(user.displayAvatarURL);
 
-  util.send_raw_msg(input.channel.id, avatarurl);
+  util.send_custom_msg(input.channel.id, embed);
 };
