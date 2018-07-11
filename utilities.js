@@ -40,6 +40,17 @@ exports.send_custom_msg = (channelID, embed, time = 0) => {
     .catch(console.error);
 };
 
+exports.send_err_msg = (channelID, message, time = 0) => {
+  let embed = new Discord.RichEmbed()
+    .setColor(config.errColor)
+    .setTitle("Error")
+    .setDescription(message);
+
+  exports.client.channels.get(channelID).send(embed)
+    .then((m) => (time > 0) ? m.delete(time) : null)
+    .catch(console.error);
+};
+
 exports.file_exists = (dir, file) => {
   return fs.readdirSync(dir).filter(f => f.toLowerCase() == file.toLowerCase()).length > 0;
 };
