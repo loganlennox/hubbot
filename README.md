@@ -8,7 +8,8 @@ In order to create your own version of HubBot, you'll need to write a ``config.j
 {
   "token": "YOUR_BOT_TOKEN_HERE",
   "cmdPrefix": "%",
-  "baseColor": [247, 152, 23]
+  "baseColor": [247, 152, 23],
+  "errColor": [230, 55, 55]
 }
 ```
 
