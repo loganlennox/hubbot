@@ -4,6 +4,14 @@ const util = include("/utilities.js");
 
 const config = include("/config.json");
 
+const format_userdata = (atrbs) => {
+  let output = "";
+
+  for (let d of atrbs) output += `:small_orange_diamond: **${d[0]}:** ${d[1]}\n`;
+
+  return output;
+};
+
 exports.execute = (input, args) => {
   if (input.mentions.everyone) return;
 
@@ -11,22 +19,23 @@ exports.execute = (input, args) => {
   user = (user !== undefined) ? user : input.member;
 
   const username = `${user.user.username}#${user.user.discriminator}`;
-  const stat = user.presence.status;
-  const id = user.id;
-  const joined = new Date(user.user.createdTimestamp);
-  const joined_server = new Date(user.joinedTimestamp);
-  const highest_role = user.highestRole;
-  const avatar = user.user.displayAvatarURL;
+
+  const attributes = [
+    ["User ID", user.id],
+    ["Join Date", util.format_date(user.joinedAt)],
+    ["Account Created", util.format_date(user.user.createdAt)],
+    ["Color", user.displayHexColor],
+    ["Playing", user.presence.game ? user.presence.game.name : "nothing"],
+    ["Status", user.presence.status],
+    ["Role Count", user.roles.array().length],
+    ["Highest Role", user.highestRole.name],
+  ];
 
   let embed = new Discord.RichEmbed()
     .setColor(config.baseColor)
-    .setAuthor(username, avatar)
-    .setThumbnail(avatar)
-    .addField("User ID", id)
-    .addField("Joined Discord", util.format_date(joined), true)
-    .addField("Joined Server", util.format_date(joined_server), true)
-    .addField("Highest Role", highest_role)
-    .setDescription(`${user} is **${stat}**`);
+    .setAuthor(username, user.user.displayAvatarURL)
+    .setThumbnail(user.user.displayAvatarURL)
+    .setDescription(format_userdata(attributes));
 
   util.send_custom_msg(input.channel.id, embed);
 };
