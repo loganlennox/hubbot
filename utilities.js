@@ -15,7 +15,7 @@ exports.format_date = (date) => {
   let day = date.getDate().toString();
   day = day.length > 1 ? day : "0" + day;
 
-  return `${month} / ${day} / ${year}`;
+  return `${month}-${day}-${year}`;
 };
 
 exports.send_raw_msg = (channelID, message, time = 0) => {
