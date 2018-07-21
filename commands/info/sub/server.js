@@ -13,8 +13,8 @@ exports.execute = (input, args, opts) => {
     .setThumbnail(guild.iconURL)
     .addField("Server ID", guild.id)
     .addField("Created At", util.format_date(guild.createdAt))
-    .addField("Member Count", guild.memberCount, true)
     .addField("Role Count", guild.roles.array().length, true)
+    .addField("Member Count", guild.memberCount, true)
     .setDescription(`Owned by ${guild.owner}`);
 
   util.send_custom_msg(input.channel.id, embed);
