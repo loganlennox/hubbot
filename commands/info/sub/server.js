@@ -4,7 +4,7 @@ const util = include("/utilities.js");
 
 const config = include("/config.json");
 
-exports.execute = (input, args, opts) => {
+exports.execute = (input, args) => {
   const guild = input.member.guild;
 
   let embed = new Discord.RichEmbed()

@@ -4,7 +4,7 @@ const util = include("/utilities.js");
 
 const config = include("/config.json");
 
-exports.execute = (input, args, opts) => {
+exports.execute = (input, args) => {
   if (input.mentions.everyone) return;
 
   let user = input.mentions.members.first();

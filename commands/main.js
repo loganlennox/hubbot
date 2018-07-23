@@ -3,26 +3,24 @@ const util = include("/utilities.js");
 const config = include("/config.json");
 
 const hasSub = (cmd) => util.file_exists(abs_path(`/commands/${cmd[0]}/sub/`),
-    `${cmd[1]}.js`);
+  `${cmd[1]}.js`);
 
 exports.handleCommand = (input) => {
   const cmd = input.toString().substring(1).split(" ");
 
   if (!util.file_exists(abs_path("/commands/"), cmd[0])) return false;
 
-  const opts = {
-    "isAdmin": input.member.hasPermission("ADMINISTRATOR"),
-  };
-
   if (util.file_exists(abs_path(`/commands/${cmd[0]}/`), "sub")) {
-    if (cmd.length == 1) return false;
-    if (!hasSub(cmd)) return false;
+    if (cmd.length == 1 || !hasSub(cmd)) {
+      util.send_err_msg(input.channel.id, "Insufficient or invalid arguments.");
+      return false;
+    }
 
-    include(`/commands/${cmd[0]}/sub/${cmd[1]}.js`).execute(input, cmd, opts);
+    include(`/commands/${cmd[0]}/sub/${cmd[1]}.js`).execute(input, cmd);
     return true;
   }
 
-  include(`/commands/${cmd[0]}/main.js`).execute(input, cmd, opts);
+  include(`/commands/${cmd[0]}/main.js`).execute(input, cmd);
   return true;
 };
 

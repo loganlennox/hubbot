@@ -12,7 +12,7 @@ const format_userdata = (atrbs) => {
   return output;
 };
 
-exports.execute = (input, args, opts) => {
+exports.execute = (input, args) => {
   if (input.mentions.everyone) return;
 
   let user = input.mentions.members.first();
