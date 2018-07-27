@@ -54,3 +54,5 @@ exports.send_err_msg = (channelID, message, time = 0) => {
 exports.file_exists = (dir, file) => {
   return fs.readdirSync(dir).filter(f => f.toLowerCase() == file.toLowerCase()).length > 0;
 };
+
+exports.is_admin = (member) => member.hasPermission("ADMINISTRATOR");
