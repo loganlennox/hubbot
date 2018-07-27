@@ -16,8 +16,13 @@ exports.handleCommand = (input) => {
       return false;
     }
 
-    include(`/commands/${cmd[0]}/sub/${cmd[1]}.js`).execute(input, cmd);
-    return true;
+
+    if (include(`/commands/${cmd[0]}/main.js`).execute(input, cmd)) {
+      include(`/commands/${cmd[0]}/sub/${cmd[1]}.js`).execute(input, cmd);
+      return true;
+    } else {
+      return false;
+    }
   }
 
   include(`/commands/${cmd[0]}/main.js`).execute(input, cmd);
