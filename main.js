@@ -25,26 +25,11 @@ client.on("message", (msg) => input.routeInput(msg));
 
 // send welcome message to new members
 client.on("guildMemberAdd", (member) => {
-  const msg = aloha.hello[Math.floor(Math.random() * aloha.hello.length)];
-
-  let embed = new Discord.RichEmbed()
-    .setTitle(`:wave: ${msg}`)
-    .setDescription(`Welcome to the server, ${member}`)
-    .setColor(config.baseColor);
-
-  util.send_custom_msg(config.homeChannel, embed, 15000);
 });
 
 // send goodbye message to members who leave the guild
 client.on("guildMemberRemove", (member) => {
-  const msg = aloha.bye[Math.floor(Math.random() * aloha.bye.length)];
 
-  let embed = new Discord.RichEmbed()
-    .setTitle(`:wave: Goodbye...`)
-    .setDescription(`${msg}, ${member}`)
-    .setColor(config.baseColor);
-
-  util.send_custom_msg(config.homeChannel, embed, 15000);
 });
 
 // start the bot
