@@ -8,7 +8,6 @@ const util = include("/utilities.js");
 const input = include("/input.js");
 
 const config = include("/config.json");
-const aloha = include("/res/aloha.json");
 
 const client = new Discord.Client();
 
